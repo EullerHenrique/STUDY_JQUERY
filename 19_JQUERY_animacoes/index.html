@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+
+    <style>
+        .div{
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000;
+            background-color: #aaa;
+            margin-top: 20px;
+            margin-left: 15px;
+        }
+    </style>
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(() => {
+            // Animações -> Atua sobre qualquer propriedade CSS numérica
+            $('button').on('click',() => {
+               let visualFinal =
+                       {
+                        'width': '160px',
+                        'height': '160px',
+                        'margin-left':'200px',
+                        'margin-top': '200px',
+                        'border-radius': '25px'
+                       };
+
+                //animate(<propriedades visuais> <tempo de transição ou opções de transição>)
+                $('#div1').animate(
+                    visualFinal,
+                    //2000, 'slow', 'medium', 'fast'
+                    {
+                        duration: 3500,
+                        start: () => {
+                            console.log('Animação iniciada');
+
+                        },
+                        complete: () => {
+                          console.log('Animação finalizada');
+                          $('#div2').animate(
+                              {
+                                'width': '160px',
+                                'height': '160px',
+                                'margin-left':'200px',
+                                'margin-top': '200px',
+                                'border-radius': '25px'
+                              },
+                              //default = fast
+                              2000
+                          );
+                        }
+                     }
+                );
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+    <button type="button">Iniciar animação</button>
+    <div id="div1" class="div"></div>
+    <div id="div2" class="div"></div>
+
+
+
+
+</body>
+
+</html>

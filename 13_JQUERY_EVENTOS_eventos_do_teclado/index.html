@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+
+    <style>
+
+    </style>
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(() => {
+            //keydown()
+            $('#teclado').keydown((e) => {
+                $('#resultadoTecla').html('Tecla pressionada');
+                console.log('Tecla pressionada');
+                console.log(e.keyCode); // keyCode = Código da tecla que foi pressionada
+                if(e.keyCode === 13){ //13 = enter
+                    let txt = $(e.target).val();
+                    $('#resultadoTecla').html(txt);
+                    $(e.target).val(' ');
+                }
+            });
+
+            //keyup()
+
+            $('#teclado').keyup((e) => {
+                $('#resultadoTecla').html('Tecla liberada');
+                console.log('Tecla liberada');
+                console.log(e);
+                if(e.keyCode < 49 || e.keyCode > 52){
+                    let txt = $(e.target).val();
+                    txt = txt.slice(0, -1); // Slice = O método slice() retorna uma cópia de parte de um array
+                                            // a partir de um subarray criado entre as posições início(begin) e fim(end)
+                                            // Como índice negativo, end indica um deslocamento em relação ao fim da sequência.
+                    $(e.target).val(txt);
+                }
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="topo">
+    <h1>Eventos</h1>
+</div>
+
+<div>
+
+    <h3>Teclado</h3>
+    <span>Nome:</span>
+    <input id="teclado" type="text" />
+    <span id="resultadoTecla" >Resultado do evento sobre o input</span>
+    <hr>
+
+</div>
+</body>
+
+</html>

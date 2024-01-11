@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+
+        <title></title>
+        <meta charset="utf-8">
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(()=>{
+                // As instruções devem ser digitadas no console, pois como eventos não serão usados, não é possivel
+                // os valores inseridos pelo usuário
+
+                //Retorna o radio marcado pelo usuário
+                //$('.sexo:checked');
+                //jQuery.fn.init [input.sexo, prevObject: jQuery.fn.init(1)]
+                //0: input.sexo
+                //length: 1
+                //prevObject: jQuery.fn.init [document]
+                //__proto__: Object(0)
+
+                //Retorna o value do radio marcado pelo usuário
+                //$('.sexo:checked').val();
+                //"m"
+
+                //Retorna cada checkbox marcado pelo usuário
+                //$('.interesse:checked');
+                //jQuery.fn.init(2) [input.interesse, input.interesse, prevObject: jQuery.fn.init(1)]
+                //0: input.interesse
+                //1: input.interesse
+                //length: 2
+                //prevObject: jQuery.fn.init [document]
+                //__proto__: Object(0)
+
+                //Retorna o value de cada checkbox marcado pelo usuário
+                //$.each($('.interesse:checked'),
+                //    (indice, valor) => {
+                //        console.log(indice, valor.value);
+                //     }
+                //)
+
+                //ou
+
+                //$('.interesse.checked').each(
+                // (indice, valor)=> {
+                // console.log(indice,valor.value)
+                // })
+
+
+            })
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <p>Sexo: </p>
+        <input type="radio" name="sexo" class="sexo" value="f">Feminino<br>
+        <input type="radio" name="sexo" class="sexo" value="m">Masculino<br>
+        <br>
+
+        <p>Interesses</p>
+        <input type="checkbox" name="interesse" class="interesse" value="php">PHP<br>
+        <input type="checkbox" name="interesse" class="interesse" value="js">JS<br>
+        <input type="checkbox" name="interesse" class="interesse" value="angular">Angular<br>
+        <input type="checkbox" name="interesse" class="interesse" value="nodejs">NodeJs<br>
+
+
+
+
+
+
+
+    </body>
+</html>

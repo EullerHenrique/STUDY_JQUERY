@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+
+    <style>
+        .inputFocado{
+            background-color: #ff0000;
+        }
+
+    </style>
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        $(() => {
+
+            //focus() -> Esse evento ocorre quando um elemento html é selecionado (com o mouse ou com a tecla tab), ou seja, o elemento clicado ganha o foco
+            $('#nome, #email').focus((e) => {
+                console.log('Esse elemento HTML recebeu o foco (nome) ')
+                $(e.target).addClass('inputFocado');
+            });
+
+
+            //blur() -> Esse evento ocorre quando outro elemento html é selecionado(com o mouse ou com a tecla tab), ou seja, o elemento
+            // que havia sido clicado perde o foco
+            $('#nome, #email').blur((e) => {
+                console.log('Esse elemento HTML perdeu o foco (nome) ')
+                $(e.target).removeClass('inputFocado');
+            });
+
+            //change() -> Esse evento ocorre após uma option de um select ser selecionada
+            $('#opcao').change((e) => {
+                console.log('Opção foi modificada');
+                console.log($(e.target).val());
+            });
+
+            //submit() -> Esse evento ocorre após o submit de um formulário
+            $('#form').submit((e) => {
+
+                //Este metódo impede o comportamento default de um evento,
+                // que neste caso é o reload da página após um submit
+                e.preventDefault();
+                console.log('Formulaŕio enviado');
+            });
+
+            $('a').click((e) => {
+                e.preventDefault();
+            });
+
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="topo">
+    <h1>Eventos</h1>
+</div>
+
+
+<h3>Formulário</h3>
+<form id="form">
+    <span>Nome:</span>
+    <input id="nome" type="text">
+
+    <span>E-mail:</span>
+    <input id="email" type="text" />
+
+    <span>Motivo do contato:</span>
+    <select id="opcao">
+        <option value="">-- Selecione --</option>
+        <option value="duvida">Dúvida</option>
+        <option value="sugestao">Sugestão</option>
+    </select>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<br>
+<a href="http://www.google.com.br">Google</a>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			
+		</style>
+
+		<script
+				src="https://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+				crossorigin="anonymous">
+		</script>
+
+		<script>
+			$(()=>{
+				//"onload()"
+				$('#onload').html('Página carregada');
+
+				//scroll()
+				$(window).scroll(()=>{
+					$('#scroll').html('Scroll acionado');
+				});
+
+				//Rezize window
+				$(window).resize(()=>{
+					$(('#resize')).html('Página redimensionada').css('background-color','red');
+				});
+
+				//Sem arrow function
+				$('#div1').scroll(function () {
+					$(this).css('background-color','blue');
+				});
+
+				//Obs: o this não funciona com arrow function
+
+				//Com arrow function
+				//parametro e = recebe o evento como um objeto
+				$('#div1').scroll((e) => {
+					console.log(e);
+					$(e.target).css('background-color','red'); //target = alvo do evento
+				});
+
+			});
+		</script>
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<h1>Eventos</h1>
+		</div>
+
+		<div>
+			<h3>Browser</h3>
+			<span>Onload: </span><span id="onload">?</span><br />
+			<span>Scroll: </span><span id="scroll">?</span><br />
+			<span>Resize Window: </span><span id="resize">?</span>
+			<div id="div1" style="height: 100px; width: 100px; border: solid 1px; overflow-y: scroll;">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+
+			<hr>
+
+		</div>
+	</body>
+
+</html>

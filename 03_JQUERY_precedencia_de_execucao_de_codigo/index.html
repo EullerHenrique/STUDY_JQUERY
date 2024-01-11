@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+
+        <title></title>
+        <meta charset="utf-8">
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <script src="script.js"></script>
+
+    </head>
+
+    <script>
+
+        //Este script não vai funcionar pois a página ainda não foi carregada,
+        //logo, o jquery não consegue selecionar o id #exemplo pois tal tag
+        // a qual este id pertence não foi criada
+
+        //function teste(){
+        //    console.log($('#exemplo'));
+        //}
+        //teste();
+
+        //Forma de corrigir o problema da precedencia por meio do jquery//
+
+            //Notações equivalentes
+            //Execução de um script por meio de uma função anonima
+                //após a página ter sido carregada
+
+                $(document).ready(function () {
+                        console.log($('#exemplo'));
+                 });
+
+                //Execução de um script por meio de uma função anonima
+                //após a página ter sido carregada
+
+                $(function () {
+                    console.log($('#exemplo'));
+                });
+            //
+
+            //Execução de uma função especifica
+                function teste2(){
+                    console.log($('#exemplo'));
+                }
+
+                //Execução de uma função após a página ter sido carregada
+                $(document).ready(teste2);//Passagem da referencia da função, ou seja,
+                                          //indica a função que o jquery deve executar
+
+                //Execução de uma função após a página ter sido carregada
+                $(teste2); //Passagem da referencia da função, ou seja,
+                          // indica a função que o jquery deve executar
+            //
+
+        //Forma de corrigir com o problema da precedencia por meio do JS
+
+            // <body onload="teste2()"/>
+            //ou
+            window.onload = teste2;
+        //
+
+    </script>
+
+    <body>
+        <div id="exemplo">ljjjjjjjjjjjjjkljkjklkjkl</div>
+    </body>
+
+</html>

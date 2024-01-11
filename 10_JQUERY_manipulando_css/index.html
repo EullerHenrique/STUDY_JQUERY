@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+
+    <title></title>
+    <meta charset="utf-8">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+    <style>
+        .campo{
+            border: none;
+            padding: 10px;
+        }
+        .padrao{
+            background-color: #ddd;
+        }
+        .erro{
+            background-color: red;
+        }
+    </style>
+    <script>
+        $(()=>{
+            // css() -> Adiciona propriedades de estilo a algum elemento html
+            $('#topo').css('background-color','#155661').css('margin','0px').css('padding','10px 20px 10px 20px');
+            //Usando um objeto literal
+            $('#topo').css({'background': '#155661','margin': '0px', 'padding':'10px 20px 10px 20px' });
+            $('body').css('margin','0px');
+            $('h1').css({'color':'#fff', 'margin':'0px'});
+
+            //addClass() -> Adiciona classes a algum elemento html
+            $('input').addClass('campo');
+            $('textarea').addClass('campo');
+            //Multiplas classes
+            $('input').addClass('campo padrao');
+            $('textarea').addClass('campo erro');
+
+            //hasClass() -> Verifica a existência de uma classe no elemento html
+            let x = console.log($('textarea').hasClass('padrao'));
+            console.log($('textarea').hasClass('erro'));
+            if(!x){
+                alert('Temos um campo com erro');
+            }
+
+            //removeClass() -> Remove (caso exista) classes de algum elemento html
+            $('textarea').removeClass('padrao');
+            $('textarea').removeClass('erro');
+
+            $('textarea').addClass('padrao');
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topo">
+        <h1>Barra de navegação da aplicação</h1>
+    </div>
+
+    <div>
+        <h3>Contato</h3>
+        <hr>
+
+        <p>Nome: </p>
+        <input type="text">
+        <br>
+
+        <p>Email: </p>
+        <input type="text">
+        <br>
+
+        <p>Mensagem: </p>
+        <textarea></textarea>
+        <br>
+
+        <button type="button">Enviar</button>
+    </div>
+</body>
+</html>

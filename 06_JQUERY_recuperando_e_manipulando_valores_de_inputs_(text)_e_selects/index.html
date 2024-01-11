@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+
+        <title></title>
+        <meta charset="utf-8">
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(()=>{
+                // As instruções devem ser digitadas no console, pois como eventos não serão usados, não é possivel
+                // acessar os valores inseridos pelo usuário após o html ser executado e após o script ser executado.
+                // Como o script para acessar os valores foi executado antes do usuário inserir os valores, obviamente
+                // tal script não irá recuperar nenhum valor.
+                // Os eventos são necessários pois um determinado script será executado somente quando um evento ocorrer
+
+                //$('#nome').val(); //Retorna o valor presente na tag com o id nome
+                //"Euller Henrique Bandeira Oliveira"
+
+                //$('#origem').val(); //Retorna o valor presente na tag com o id origem
+                //"2"
+
+                //$('#nome').val('João'); //Insere um valor na tag com o id nome
+
+                //$('#origem').val('2'); // Insere um valor na tag com o id origem,
+                                        // se tal valor for correspondente a algum
+                                       // value de alguma tag option,
+                                      // o option em questão será exibido
+            })
+        </script>
+
+    </head>
+
+    <body>
+        <p>Nome: </p>
+        <input type="text" id="nome">
+        <br>
+        <p>Onde voçê nos encontrou? </p>
+        <select id="origem">
+            <option value="1">Google</option>
+            <option value="2">Facebook</option>
+            <option value="3">Rádio</option>
+            <option value="4">Outros meios</option>
+        </select>
+    </body>
+</html>

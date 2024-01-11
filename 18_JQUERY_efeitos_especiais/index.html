@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			button {
+				margin-bottom: 5px;
+				width: 100px;
+			}
+
+			.div {
+				width: 100px;
+				height: 100px;
+			}
+
+			.div1 {
+				background-color: red
+			}
+
+			.div2 {
+				background-color: green
+			}
+
+			.div3 {
+				background-color: blue
+			}
+
+			.grupo {
+				padding: 25px;
+				float: left
+			}
+		</style>
+
+		<script
+				src="https://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+				crossorigin="anonymous">
+		</script>
+
+		<script>
+			$(() => {
+
+									//hide, show e toogle
+				      // Efeito de diminuir em direção ao canto superior esquerdo
+				      // OU
+				      // Efeito de aumentar em direção ao canto inferior direito
+				//////////////////////////////////////////////////////////////
+
+				/*
+
+				//Código verboso
+
+				//Velocidade da transição -> slow, medium, fast ou x milissegundos
+
+				//hide() -> Oculta um elemento html
+				$('#div1').hide('slow');
+
+				//show() -> Exibe um elemento html
+				$('#div1').show(2000); //2 segundos
+
+
+
+				//toogle()
+
+				// Caso o elemento estiver sendo exibido, ele será ocultado
+				// Caso o elemento estiver ocultado, ele será exibido
+
+
+				//Código minimalista
+
+				$("#div1").toggle(1000); //Elemento está sendo exibido -> O elemento será ocultado
+				$("#div1").toggle(1000); //Elemento está ocultado -> O elemento erá exibido
+
+				 */
+
+
+				//Código ainda mais minimalista
+
+				$('#btn1').on('click',()=>{
+					$('#div1').toggle('slow');
+				});
+
+				///////////////////////////////////////////////////////////////
+
+
+					         //fadeOut, fadeIn, fadeToogle e fadeTo
+				            //Efeito de desaparecimento/aparecimento
+				///////////////////////////////////////////////////////////////
+
+				/*
+				//Código verboso
+
+				//fafeOut -> Desaparecimento do elemento
+				$("#div2").fadeOut('slow');
+
+				//fadeIn -> Aparecimento do elemento
+				$('#div2').fadeIn('slow');
+
+
+				//fadeToogle()
+
+				// Caso o elemento não estiver aparecendo, ele irá aparecer
+				// Caso o elemento estiver aparecendo, ele irá desaparecer
+
+
+				//Código minimalista
+
+				$("#div2").fadeToggle('slow'); //Elemento está aparecendo -> O elemento irá desaparecer
+				$("#div2").fadeToggle('slow'); //Elemento não está aparecendo -> O elemento irá aparecer
+
+
+				//fadeTo() -> Especifica para qual ponto de opacidade o elemento irá
+				//			  Pontos permitidos = Entre 0 e 1
+				//			  0 ->	Nenhum opacidade -> invisivel
+				//			  1 ->  Opacidade máxima -> visivel
+				$("#div3").fadeTo('slow', 0.3);
+
+				*/
+
+				//Código ainda mais minimalista
+				$('#btn2').on('click', () => {
+					$('#div2').fadeToggle(2000);
+				});
+
+				/////////////////////////////////////////////////////////////////
+
+
+								//slideUp, slideDown e slideToggle
+				         //Efeito de delizar o elemento para cima ou para baixo
+				//////////////////////////////////////////////////////////////////
+
+				/*
+				//Código verboso
+
+				//slideUp() -> Desliza o elemento para cima até ele desaparecer
+				$("#div3").slideUp('slow');
+
+				//slideDown() -> Desliza o elemento para baixo até ele aparecer
+				$('#div3').slideDown('slow');
+
+				//slideToogle()
+
+				// Caso o elemento não tiver deslizado para cima, ele irá deslizar para baixo até ele aparecer
+				// Caso o elemento tiver deslizado para baixo, ele irá deslizar para cima até ele desaparecer
+
+
+				//Código minimalista
+
+				$("#div3").slideUp('slow');   //Elemento deslizou para baixo -> O elemento irá deslizar para cima
+				$("#div3").slideDown('slow'); //Elemento deslizou para cima -> O elemento irá deslizar para baixo
+
+				*/
+
+				//Código ainda mais minimalista
+				$('#btn3').on('click', () => {
+					$('#div3').slideToggle(2000);
+				});
+
+				/////////////////////////////////////////////////////////////////
+			})
+		</script>
+	</head>
+
+	<body>
+		
+		<div class="grupo">
+			<button id="btn1" type="button">DIV 1</button>
+			<div id="div1" class="div div1"></div>
+		</div>
+
+		<div class="grupo">
+			<button id ="btn2" type="button">DIV 2</button>
+			<div id="div2" class="div div2"></div>
+		</div>
+
+		<div class="grupo">
+			<button id="btn3" type="button">DIV 3</button>
+			<div id="div3" class="div div3"></div>
+		</div>
+			
+	</body>
+
+</html>

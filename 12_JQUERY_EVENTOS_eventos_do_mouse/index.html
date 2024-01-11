@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			#divExterna{
+				background-color: #ccc;
+				width: 80px;
+				height: 80px;
+				padding: 70px;
+			}
+			#divInterna{
+				background-color: blue;
+				width: 80px;
+				height: 80px;
+			}
+		</style>
+
+		<script
+				src="https://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+				crossorigin="anonymous">
+		</script>
+		<script>
+
+			$(() => {
+
+				//mousedown()
+				$('#btn1').mousedown(()=> {
+
+					$('#div2').css('background-color','green');
+
+				});
+
+				//mouseup()
+				<!-- onmouseup() = aceita o clique o botao esquerdo, do meio e direito do mouse -->
+				$('#btn1').mouseup(()=>{
+					$('#div2').css('background-color','blue');
+				});
+
+				//click()
+				<!-- onclick() = aceita somente o clique com o botao esquerdo do mouse -->
+				$('#btn1').click(()=>{
+					$('#div2').css('background-color','blue');
+				});
+
+				//dblclick()
+				$('#btn2').dblclick(()=>{
+					$('#div2').css('background-color','yellow');
+
+				});
+
+				//mousemove()
+				$("#div2").mousemove((e)=>{
+					console.log(e.offsetX, e.offsetY); //Posicionamento do mouse no eixo x e no eixo y do elemento html
+					$('#resultadoDiv').html(' X: '+e.offsetX + ' | ' + 'Y: '+e.offsetY);
+
+
+				});
+
+				//Metódos antigos
+				//Existe um bug, o efeito bubble:
+				//   Ao entrar na div interna saimos da div externa
+				//   entramos na div interna e na div externa
+				//   Pela lógica, isso não era pra ocorrer,
+				//   Se estamos dentro da div externa não era pra sairmos dela
+				//   Quando entrarmos na div interna, já que a div interna pertence
+				//   A div externa.
+				//   Ao sair da div interna saimos da div interna,
+				//   saimos da div externa e entramos na div externa
+				//   Obviamente esta quebra de lógica não era pra ocorrer.
+
+			/*
+				//mouseover()
+				$('#divExterna').mouseover(() => {
+					$('#resultadoDiv1').html('<br>Entrou');
+					console.log('Div Externa entrou')
+				});
+
+				//mouseout()
+				$('#divExterna').mouseout(() => {
+					$('#resultadoDiv1').html('<br>Saiu');
+					console.log('Div Externa saiu')
+				});
+
+				//mouseover()
+				$('#divInterna').mouseover(() => {
+					$('#resultadoDiv2').html('<br>Entrou');
+					console.log('Div Interna entrou')
+				});
+
+				//mouseout()
+				$('#divInterna').mouseout(() => {
+					$('#resultadoDiv2').html('<br>Saiu');
+					console.log('Div Interna saiu')
+				});
+			*/
+
+
+				//Metódos novos
+				//Tais metódos não possuem o efeito bubble
+
+				//mouseenter()
+				$('#divExterna').mouseenter(() => {
+					$('#resultadoDiv1').html('<br>Entrou');
+					console.log('Div Externa entrou')
+				});
+
+				//mouseenter()
+				$('#divInterna').mouseenter(() => {
+					$('#resultadoDiv1').html('<br>Entrou');
+					console.log('Div Interna entrou')
+				});
+
+				//mouseleave()
+				$('#divExterna').mouseleave(() => {
+					$('#resultadoDiv2').html('<br>Saiu');
+					console.log('Div Externa saiu')
+				});
+
+				//mouseleave()
+				$('#divInterna').mouseleave(() => {
+					$('#resultadoDiv2').html('<br>Saiu');
+					console.log('Div Interna saiu')
+				});
+
+			});
+
+		</script>
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<h1>Eventos</h1>
+		</div>
+
+		<div>
+
+			<h3>Mouse</h3>
+			<button id="btn1" type="button">Clique aqui</button>
+			<button id="btn2" type="button">Clique aqui 2x</button>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span><span id="resultadoDiv"></span>
+
+			<div id="divExterna">
+				<div id="divInterna"></div>
+			</div>
+			<span>Div externa: </span><span id="resultadoDiv1"></span>
+			<br>
+			<span>Div interna: </span><span id="resultadoDiv2"></span>
+			<hr>
+
+		</div>
+	</body>
+
+</html>

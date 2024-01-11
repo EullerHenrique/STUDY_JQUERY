@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<script
+				src="https://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+				crossorigin="anonymous">
+		</script>
+		<script>
+			$(()=>{
+				//Permite acessar o elemento pai
+				console.log($('.secao1').parent());
+
+				//Procura por elementos pais
+
+				//			  referencia 			  pai
+				console.log($('.subSecao').closest('#pagina'));
+				console.log($('.subSecao').closest('.secao1'));
+				console.log($('.item').closest('#topo'));
+				console.log($('.item').closest('ul'));
+
+				//Procura por elementos filhos
+
+				//referencia    filho
+				console.log($('#rodape').find('p'));
+				console.log($('#topo').find('.item'));
+
+				//Combinação de metódos
+				console.log($('.secao1').parent().find('h1'));
+				console.log($('.subSecao').parent().parent().find('h1'));
+				console.log($('.subSecao').closest('#pagina').find('h1'));
+
+			});
+		</script>
+
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<ul class="menu">
+				<li class="item"></li>
+				<li class="item"></li>
+			</ul>
+		</div>
+
+		<div id="pagina">
+			<div class="secao1">
+				<div class="subSecao"></div>
+			</div>
+			
+			<div class="secao2">
+				<h1></h1>
+			</div>
+		</div>		
+		
+		<div id="rodape">
+			<div>
+				<p></p>	
+				<span id="opcao1"></span>
+			</div>
+		</div>
+
+	</body>
+
+</html>

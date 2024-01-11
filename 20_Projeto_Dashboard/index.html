@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Ajax com jQuery</title>
+		<style>
+
+			li:hover {
+				border-left: 3px solid #e1ffff;
+			}
+
+			.menu li a:hover{
+				background-color: dodgerblue;
+			}
+
+			.submenu li a:hover{
+				background-color: mediumspringgreen;
+			}
+
+
+			.main {
+				margin-left: 220px;
+				padding: 15px;
+			}
+
+			@media (max-width: 767px) {
+				.main {
+					margin-left: 0;
+				}
+			}
+
+			.toggle-btn {
+				position: absolute;
+				cursor: pointer;
+				right: 10px;
+				top: 6px;
+				padding: 3px;
+				width: 40px;
+				text-align: center;
+				background-color: #2e353d;
+				border-radius: 4px;
+			}
+		</style>
+
+		<!-- estilos -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<!-- script -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+				crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+				integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+				crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+				integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+				crossorigin="anonymous"></script>
+		<script src="JS/script.js"></script>
+
+	</head>
+
+	<body style="background-color: #ebedef">
+	<header> <!-- Inicio cabeçalho 1 -->
+		<nav class="navbar navbar-expand-md d-md-none navbar-dark text-white pt-2" style="background: #23282e; margin: 0; padding: 0;">
+
+				<a class="navbar-brand pb-3" style="margin-left: 20px; font-size: 14px;">
+					SEU LOGO AQUI
+				</a>
+
+			<a data-toggle="collapse" data-target="#nav-principal" style="margin-right: 20px;">
+					<span class="fa fa-bars fa-2x toggle-btn"></span>
+			</a>
+
+				<div class="collapse navbar-collapse"  id="nav-principal">
+					<!-- .collapse navbar-collapse para agrupar e esconder conteúdos navbar, de acordo com o breakpoint do pai. -->
+					<ul class="navbar-nav ml-auto menu">
+
+						<li class="nav-item" style="background-color:  #181c20;">
+							<a href="#" class="text-white p-3" style="text-decoration: none; display: block;">
+								<span class="fa fa-tachometer-alt" style="font-size: 25px; "></span><span style="font-size: 18px; margin-left: 5px;">Dashboard</span>
+							</a>
+						</li>
+
+						<li class="nav-item border-top border-bottom" data-toggle="collapse" data-target="#ajuda" style="background-color:  #181c20">
+							<a href="#" class="text-white p-3" style="text-decoration: none; display: block">
+								<span class="fa fa-life-ring" style="font-size: 25px"></span> </span><span style="font-size: 18px; margin-left: 5px;">Ajuda</span>
+								<span class="fa fa-angle-down" style="font-size: 25px; position: absolute; right: 22px"></span>
+							</a>
+						</li>
+
+					<div class="collapse submenu" id="ajuda">
+						<li class="nav-item " style="background-color: black">
+							<a href="#" class="text-white p-3 pl-4 documentacao" style="text-decoration: none; display: block">
+								<span class="fa fa-angle-right" style="font-size: 20px"></span> <span style="font-size: 14px; margin-left: 5px;">Documentação</span>
+							</a>
+						</li>
+
+						<li class="nav-item border-top" style="background-color: black">
+							<a href="#" class="text-white p-3 pl-4 suporte" style="text-decoration: none; display: block">
+								<span class="fa fa-angle-right" style="font-size: 20px;"></span> <span style="font-size: 14px; margin-left: 5px;">Suporte</span>
+							</a>
+						</li>
+					</div>
+
+					</ul>
+
+				</div>
+
+		</nav>
+	</header><!-- Fim cabeçalho    -->
+
+
+	<header class="d-none d-md-block" style=" background-color: #2e353d; position: fixed; width: 220px; height: 100%; color: #e1ffff;"> <!-- Inicio cabeçalho 2 -->
+		<ul class="navbar-nav menu">
+			<div style=" background-color: #23282e;">
+				<a class="navbar-brand py-3 pb-2" style="font-size: 14px; margin-left: 55px; ">
+					SEU LOGO AQUI
+				</a>
+			</div>
+			<li class="nav-item ">
+				<a href="#" class="text-white p-3 border-top" style="text-decoration: none; font-size: 20px; display: block;">
+					<span class="fa fa-tachometer-alt" style="font-size: 25px; "></span><span style="font-size: 18px; margin-left: 5px;">Dashboard</span>
+				</a>
+			</li>
+
+			<li class="nav-item border-top border-bottom" data-toggle="collapse" data-target="#ajuda2">
+				<a href="#" class="text-white p-3 " style="text-decoration: none; font-size: 20px; display: block">
+					<span class="fa fa-life-ring" style="font-size: 25px"></span> </span><span style="font-size: 18px; margin-left: 5px;">Ajuda</span>
+					<span class="fa fa-angle-down" style="font-size: 25px; position: absolute; right: 20px"></span>
+				</a>
+			</li>
+
+			<div class="collapse submenu" id="ajuda2">
+				<li class="nav-item" style="background-color: black">
+					<a href="#" class="text-white p-3 pl-4 documentacao" style="text-decoration: none; display: block">
+						<span class="fa fa-angle-right" style="font-size: 20px"></span> <span style="font-size: 14px; margin-left: 5px;">Documentação</span>
+					</a>
+				</li>
+
+				<li class="nav-item border-top border-bottom" style="background-color: black">
+					<a href="#" class="text-white p-3 pl-4 suporte" style="text-decoration: none; display: block">
+						<span class="fa fa-angle-right" style="font-size: 20px;"></span> <span style="font-size: 14px; margin-left: 5px;">Suporte</span>
+					</a>
+				</li>
+			</div>
+
+		</ul>
+
+	</header><!-- Fim cabeçalho    -->
+
+
+		<!-- paginas -->
+		<div class="main" id="pagina">
+			<div class="container">
+				<div class="row mb-3">
+					<div class="col-md-6 mb-2">
+						<div class="card">
+							<div class="card-header text-center">
+								Clientes ativos
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="clientesAtivos">?</h5>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="card">
+							<div class="card-header text-center">
+								Clientes inativos
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="clientesInativos">?</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-md-4 mb-2">
+						<div class="card">
+							<div class="card-header text-center">
+								Total de reclamações
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="totalReclamacoes">?</h5>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mb-2">
+						<div class="card">
+							<div class="card-header text-center">
+								Total de elogios
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="totalElogios">?</h5>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-header text-center">
+								Total de sugestões
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="totalSugestoes">?</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<hr>
+				<form class="form-group row">
+						<!-- col-form-label = Utilizado para centralizar verticalmente os elementos
+					  		 com seus controles de formulário associados.-->
+
+						<label class="col-9 col-form-label">Data:</label>
+						<div class="col-3">
+							<select class="form-control-plaintext" id="data">
+								<option value="">-- Selecione </option>
+								<option value="2018-08">Agosto / 2018</option>
+								<option value="2018-09">Setembro / 2018</option>
+								<option value="2018-10">Outubro / 2018</option>
+							</select>
+						</div>
+				</form>
+				<hr>
+
+
+
+		    	<div class="row mb-3">
+
+		    		<div class="col-md-6 mb-2">
+		    			<div class="card">
+							<div class="card-header text-center">
+								Número de vendas
+							</div>
+							<div class="card-body text-center">
+								 <h5 class="card-title" id="numeroVendas">?</h5>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+		    			<div class="card">
+							<div class="card-header text-center">
+								Total de vendas
+							</div>
+							<div class="card-body text-center">
+								 <h5 class="card-title" id="totalVendas">?</h5>
+							</div>
+						</div>
+		    		</div>
+
+				</div>
+
+		    	<div class="row mb-3">
+					<div class="col-md-6 mb-2">
+						<div class="card">
+							<div class="card-header text-center">
+								Número de despesas
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title" id="numeroDespesas">?</h5>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+		    			<div class="card">
+							<div class="card-header text-center">
+								Total de despesas
+							</div>
+							<div class="card-body text-center">
+								 <h5 class="card-title" id="totalDespesas">?</h5>
+							</div>
+						</div>
+					</div>
+		    	</div>
+		    </div>
+
+		</div>
+	</body>
+
+</html>

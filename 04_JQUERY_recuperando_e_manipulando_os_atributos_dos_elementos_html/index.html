@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+
+        <title></title>
+        <meta charset="utf-8">
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(() => {
+                console.log($('img').attr('src')); //Retorna o valor presente no atributo src
+                console.log($('img').attr('style')); //Retorna o valor presente no atributo style
+
+                $('img').attr('src','IMG/esfera_2.png'); // Substitui o valor presente no atributo src
+                $('img').attr('style', 'border: 20px solid red'); // Substitui o valor presente no atributo style
+
+                console.log($('div').attr('style')); //Retorna o valor presente no atributo
+                $('div').attr('style', 'background-color: blue; width: 200px; height: 200px;')
+
+                console.log($('input').attr('value')); //Retorna o valor presente no atributo value
+                $('input').attr('value','Eu continuo sendo um input');
+                $('input').attr('type','password');
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <img src="IMG/esfera_1.png" style="border: 5px solid black">
+
+        <div style="background-color: red; width: 100px; height: 100px;"></div>
+        <br>
+        <br>
+        <input type="text" value="Eu sou um input">
+    </body>
+</html>

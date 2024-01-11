@@ -1,0 +1,153 @@
+<!--
+     O que é Jquery?
+
+     Biblioteca JavaScript (Write less, do more)
+
+     JQuery é uma biblioteca popular do JavaScript. Ela foi criada por John Resig
+     em 2006 com o propósito de facilitar a vida dos desenvolvedores que usam
+     JavaScript nos seus sites. Não é uma linguagem de programação separada,
+     funciona em conjunto com o JavaScript. Com jQuery, você vai conseguir fazer
+     muito mais com menos.
+
+     A jQuery compacta várias linhas de código em uma única função. Assim, você
+     não precisa reescrever todos os blocos repetidamente para concluir sua tarefa.
+
+     Com jQuery é possível fazer diversos tarefas com poucas linhas e,
+     que custariam dezenas de linhas em JavaScript puro.
+
+    Alguns recursos oferecidos facilmente pelo jQuery:
+
+    Seleção e manipulação de elementos HTML
+    Navegação pelo DOM
+    Manipulação de CSS
+    Eventos
+    Efeitos e animações
+    Ajax
+    Plugins
+
+    O que é CDN ?
+
+
+    CDN é abreviação de Content Delivery Network (ou Rede de Distribuição de Conteúdo).
+    É uma rede de servidores (pontos de presença) que armazenam réplicas do conteúdo de outros sites
+    na memória (cache) e depois os entrega aos visitantes, baseando-se na localização geográfica para
+    conectá-los ao servidor mais próximo e mais rápido, reduzindo o tempo de transferência dos dados (latência).
+
+	O que é memória cache?
+	É uma camada de armazenamento físico de dados de alta velocidade que guarda um subconjunto de dados, geralmente 	
+    temporário por natureza, para que futuras solicitações referentes a esses dados sejam atendidas de modo mais 		
+    rápido do que é possível fazer ao acessar o local de armazenamento principal de dados.
+
+    CDN significa Content Delivery Network, ou em português: Rede de Distribuição
+    de Conteúdo. Essa tecnologia tem como objetivo a entrega de conteúdo web de
+    forma rápida a usuários que estejam acessando um mesmo site em diferentes
+    locais.
+
+    Basicamente, uma CDN é uma rede de servidores espalhados por regiões diferentes
+    que replicam o conteúdo do site a partir de um servidor de origem. Nesse sistema,
+    o visitante é direcionado para o servidor com uma réplica do conteúdo de acordo
+    com a sua localização geográfica.
+
+    Quanto mais próximo estiver o servidor, mais rápida serão as respostas para as
+    requisições. Dessa forma, um site que utiliza CDN consegue oferecer uma experiência
+    melhor para seus visitantes. Já que o visitante não vai precisar aguardar a resposta
+    do servidor de origem, que pode estar distante.
+
+    Vantagens:
+
+    Redução do tempo de resposta do servidor
+        Ao acessar uma URL, o browser envia uma requisição para o servidor. Essa requisição
+        percorre um caminho até chegar ao seu destino. Uma vez que o servidor recebe o pedido,
+        há ainda um tempo para que o mesmo seja processado antes do retorno ser finalmente
+        enviado para o usuário. Sites dinâmicos e que dependem de processamento server-side
+        para montagem das páginas podem aumentar bastante o tempo total de resposta do servidor.
+
+        Quando há o uso de uma CDN para cachear o conteúdo, o tempo de processamento da requisição
+        pode ser reduzido consideravelmente, já que o que será entregue é uma cópia estática do
+        conteúdo solicitado.
+
+        Além disso, uma CDN provavelmente tem condições de entregar conteúdo a partir de um
+        servidor mais próximo fisicamente do usuário, o que contribui ainda mais para reduzir
+        o TTFB (time to first byte, que é o tempo que o cliente leva para receber o primeiro byte)
+        e o envio do conteúdo integral da página.
+
+    Aumento da velocidade de carregamento das páginas
+        Uma CDN é muito boa em cachear conteúdo estático. Imagens, JavaScript e CSS são fortes
+        candidatos a serem armazenados em cache para agilizar a entrega. O próprio HTML pode
+        ser cacheado, dependendo das configurações do serviço. Nestes dois cenários o tempo
+        de entrega dos assets (No desenvolvimento web, o termo assets é utilizado para designar
+        tudo o que complementa o conteúdo dos websites. Em outras palavras, assets são nossos
+        recursos de folhas de estilo, scripts, fontes e imagens.) da página é menor do que seria
+        quando apenas o servidor de hospedagem é o responsável por isso.
+
+        O resultado dessa configuração é a redução do tempo total de carregamento das páginas,
+        já que há redução no tempo de resposta do servidor.
+        Nem sempre é possível cachear todo o conteúdo de um site ou aplicação, mas sempre existem elementos estáticos
+        que podem ser servidos com vantagem a partir de uma CDN.
+
+   Aumento da capacidade de aguentar tráfego
+        Sites e blogs que passam por picos de acesso, como quando uma postagem viraliza,
+        frequentemente se deparam com quedas ou instabilidades no serviço de hospedagem.
+        É uma situação contraditória, pois você fica na mão justamente no momento em que
+        mais precisa do seu site no ar.
+
+        É claro que não existe uma “bala de prata” em cenários como esse: é necessário
+        avaliar a demanda e adequar o serviço de hospedagem. Mas ainda assim uma CDN
+        pode ajudar, já que grande parte das requisições nem chega ao servidor de origem.
+
+    Proteção contra invasões e ataques DDoS
+        Ataques DDoS e tentativas de invasão são uma realidade. Muitas vezes esse tipo
+        de ocorrência pode prejudicar milhares de sites e aplicações que estão no mesmo
+        datacenter.
+
+        A maioria dos serviços de CDN possui recursos para reduzir o impacto de um
+        ataque distribuído de negação de serviço. E isso geralmente é feito
+        automaticamente. A proteção contra ataques do tipo SQL injection
+        e cross-site scripting também é outro recurso frequentemente oferecido pelas CDNs.
+
+    Prolongamento da vida útil da sua hospedagem
+        Por aliviar a carga de processamento do servidor e ajudar com a demanda de tráfego,
+        uma CDN pode permitir que um site em crescimento permaneça mais tempo na mesma
+        hospedagem para sites em crescimento. A lógica é a seguinte: se determinado
+        site ou blog possui uma audiência crescente, em algum momento de sua vida
+        ele precisará migrar para uma hospedagem mais robusta, que atenda à crescente
+        demanda sem interrupções. Ao aliviar a carga do servidor, a CDN pode adiar
+        o momento de um upgrade de hospedagem.
+
+    SSL gratuito
+        Ter um certificado SSL também era um item considerado opcional há alguns anos,
+        mas que agora é indispensável para qualquer site profissional. O certificado
+        de segurança está entre os fatores de ranqueamento do Google desde 2014.
+
+        Grande parte das empresas provedoras de CDN oferece um certificado SSL gratuitamente.
+        Geralmente o processo é completamente automatizado, ou seja, é apertar um botão e
+        aguardar a instalação do certificado. Há ainda a possibilidade de escolher se a
+        encriptação ocorrerá apenas na borda (edge: CDN <-> clientes) ou totalmente
+        (full: servidor de origem <-> CDN <-> clientes).
+	  				 
+
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery</title>
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <!-- <script src="../JQUERY/jquery-3.4.1.js"></script> -->
+    </head>
+
+    <body>
+        <h1>jQuery</h1>
+
+
+    </body>
+
+    <script>
+        $('h1').html('A biblioteca jQuery está funcionando');
+    </script>
+</html>

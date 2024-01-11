@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+
+        <title></title>
+        <meta charset="utf-8">
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(() => {
+                // Insere um elemento html no começo do conteudo html da tag com o id em questão
+                $('#lista1').prepend('<li>Item 0.5</li>');
+                $('#lista2').prepend('<div>Item novo 1</div>');
+
+                // Insere um elemento html no final do conteudo html da tag com o id em questão
+                $('#lista1').append('<li>Item 4</li>');
+                $('#lista2').append('<div>Item novo 2</div>');
+
+                // Insere um elemento html antes da tag com o id em questão
+                $('#lista2').before('<p>Eu fui inserido antes da div</p>');
+
+                // Insere um elemento html após a tag com o id em questão
+                $('#lista2').after('<p>Eu fui inserido após a div</p>');
+                $('#linha').after('<p>HELLOOOO</p>');
+
+                // Insere um elemento html na tag com o id em questão.
+                // Obs: Desta maneira o conteudo html anterior será sobrescrito
+                $('#lista1').html('Eu substitui todo o conteúdo que estava aqui');
+
+                // Remove a tag com o id em questão
+                $('#lista2').remove();
+                // Remove a tag com a classe em questão
+                $('.linha').remove();
+            })
+        </script>
+
+    </head>
+
+    <body>
+
+        <ul id="lista1">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+
+    <div id="lista2">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+
+    <hr class="linha" id="linha">
+
+    </body>
+</html>
